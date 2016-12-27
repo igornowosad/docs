@@ -9,7 +9,7 @@
 
 # Basics
 
-## Ternary operator <a id='ternary-operator' href='ternary-operator'>&#9875;</a>
+## Ternary operator <a id='ternary-operator' href='#ternary-operator'>&#9875;</a>
 
 ```javascript
 return (doSomeCalculation() === 1) 
@@ -17,7 +17,7 @@ return (doSomeCalculation() === 1)
   : doWhenFalse();
 ```
 
-## Multiple logical operators in statement <a id='multiple-logical-operators' href='multiple-logical-operators'>&#9875;</a>
+## Multiple logical operators in statement <a id='multiple-logical-operators' href='#multiple-logical-operators'>&#9875;</a>
 
 ```javascript
 return isItTrue() 
@@ -32,7 +32,7 @@ return isItTrue()
   && returnIfAllTrue;
 ```
 
-## Nested arrow functions <a id='nested-arrow-functions' href='nested-arrow-functions'>&#9875;</a>
+## Nested arrow functions <a id='nested-arrow-functions' href='#nested-arrow-functions'>&#9875;</a>
 
 ```javascript
 const returnFunc = () => 
@@ -41,7 +41,7 @@ const returnFunc = () =>
     : 'RETURNED_IF_FALSE';
 ```
 
-## Chaining promises <a id='chaining-promises' href='chaining-promises'>&#9875;</a>
+## Chaining promises <a id='chaining-promises' href='#chaining-promises'>&#9875;</a>
 
 ```javascript
 const add1ToVal = val => val + 1;
@@ -53,7 +53,7 @@ const returnPromise()
   .then(() => finalResolve());
 ```
 
-## Resolving promises consecutive (without async await) <a id='promise-consecutive-resolve' href='promise-consecutive-resolve'>&#9875;</a>
+## Resolving promises consecutive (without async await) <a id='promise-consecutive-resolve' href='#promise-consecutive-resolve'>&#9875;</a>
 
 * with resultat of previous one 
 
@@ -74,7 +74,7 @@ return promises
     promise.then(() => currentPromise()), Promise.resolve());
 ```
 
-## Assignment in arrow function <a id='assignment-in-arrow-function' href='assignment-in-arrow-function'>&#9875;</a>
+## Assignment in arrow function <a id='assignment-in-arrow-function' href='#assignment-in-arrow-function'>&#9875;</a>
 
 ```javascript
 const object = {};
