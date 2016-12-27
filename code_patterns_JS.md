@@ -14,3 +14,9 @@ return isItTrue()
     || isItTrueAlsoVeryLongStatementWithManyLetters2())
   && returnIfAllTrue;
 ```
+```javascript
+const returnFunc = () => 
+  someData => (doSomeCalculation() === 1)
+    ? 'RETURNED_IF_TRUE'
+    : 'RETURNED_IF_FALSE';
+ ```
