@@ -1,11 +1,11 @@
 # Table of contents:
 
 * [ternary operator](#ternary-operator)
-* [multiple logical operators](multiple-logical-operators)
-* [nested arrow functions](nested-arrow-functions)
-* [chaining promises](chaining-promises)
-* [promise consecutive resolve](promise-consecutive-resolve)
-* [assignment in arrow function](assignment-in-arrow-function)
+* [multiple logical operators](#multiple-logical-operators)
+* [nested arrow functions](#nested-arrow-functions)
+* [chaining promises](#chaining-promises)
+* [promise consecutive resolve](#promise-consecutive-resolve)
+* [assignment in arrow function](#assignment-in-arrow-function)
 
 # Basics
 
