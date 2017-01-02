@@ -6,6 +6,7 @@
 * [chaining promises](#chaining-promises)
 * [promise consecutive resolve](#promise-consecutive-resolve)
 * [assignment in arrow function](#assignment-in-arrow-function)
+* [HTML tag with multiple attributes](#multiple-element-attributes)
 
 # Basics
 
@@ -75,7 +76,6 @@ return promises
 ```
 
 ## Assignment in arrow function <a id='assignment-in-arrow-function' href='#assignment-in-arrow-function'>&#9875;</a>
-
 ```javascript
 const object = {};
 ...
@@ -96,4 +96,19 @@ best:
 const object = {};
 ...
 .then(val => Object.assign({}, object, val)); 
+```
+
+## HTML tag with multiple attributes <a id='multiple-element-attributes' href='#multiple-element-attributes'>&#9875;</a>
+
+bad:
+```javascript
+<input id='someDiv' class='someClass' name='someName' type='text' placeholder='type text'>
+```
+good:
+```javascript
+<input id='someDiv' 
+       class='someClass' 
+       name='someName' 
+       type='text' 
+       placeholder='type text'>
 ```
