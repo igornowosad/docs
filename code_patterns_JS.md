@@ -100,6 +100,8 @@ const object = {};
 
 ## HTML tag with multiple attributes <a id='multiple-element-attributes' href='#multiple-element-attributes'>&#9875;</a>
 
+### Do always, when more than 2 attributes
+
 bad:
 ```javascript
 <input id='someDiv' class='someClass' name='someName' type='text' placeholder='type text'>
