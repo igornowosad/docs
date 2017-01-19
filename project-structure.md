@@ -21,3 +21,13 @@ Files should be named in lower-case, e.g.:
 * some-component-with-long-name.js
 * components/
 * some-component/
+
+### Naming branches
+
+For fixes:
+
+`fix/[task's number if specified-]short-fix-description`
+
+For features:
+
+`feature/[task's number if specified-]short-feature-description`
