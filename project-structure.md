@@ -22,6 +22,8 @@ Files should be named in lower-case, e.g.:
 * components/
 * some-component/
 
+Due to [cross-platform issues related to case (in)sensitivity](http://stackoverflow.com/questions/1594014/how-do-i-explain-my-colleagues-that-filenames-should-not-contain-uppercase-chara/1594041#1594041).
+
 ### Naming branches
 
 For fixes:
