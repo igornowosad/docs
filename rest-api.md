@@ -67,3 +67,6 @@ body: { name: ..., nip: ... }
 `GET /users/:id/projects`
 1. when getting users associated with given project:
 `GET /projects/:id/users`
+
+### More resources
+http://blog.octo.com/en/design-a-rest-api/
