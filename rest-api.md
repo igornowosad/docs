@@ -29,7 +29,7 @@ application flow, consider using POST or PUT/PATCH and return needed data.
 
 ```javascript
 GET /customers?sort=-name&filter=name&query=Johnsson
-// response: 200, array of customer objects which fulfill given filter and are sorted in ascending order (__-__ = asc, __+__ = desc)
+// response: 200, array of customer objects which fulfill given filter and are sorted in ascending order ('-' = asc, '+' = desc)
 ```
 ```javascript
 GET /customers/:id?fields=name,nip
