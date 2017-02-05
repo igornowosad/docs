@@ -19,7 +19,7 @@ when fulfilling a request.
 
 ### What convention of sending data to use when sending different requests?
 
-In case of sending __filter__, __sort__ etc properties, you should always send them __in query__. They're data, that is not 
+In case of sending __filter__, __sort__ etc properties, you should always send them __in query__. They're data, that are not 
 affecting response data itself, just limiting response data amount and order.
 
 #### GET
