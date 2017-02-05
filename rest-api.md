@@ -38,7 +38,8 @@ GET /customers/:id?fields=name,nip
 
 #### PUT, PATCH
 
-Send only __identifiers__ of modified entity __in params__.
+PUT/PATCH is used to modify specified entities. 
+Send only __identifiers__ of modified entity __in params__, the rest should be sent in body.
 
 ```javascript
 PUT /customers/:id
