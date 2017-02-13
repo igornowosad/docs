@@ -7,6 +7,7 @@
 * [promise consecutive resolve](#promise-consecutive-resolve)
 * [assignment in arrow function](#assignment-in-arrow-function)
 * [HTML tag with multiple attributes](#multiple-element-attributes)
+* [Guard Pattern](#guard-pattern)
 
 # Basics
 
@@ -113,4 +114,104 @@ good:
        name='someName' 
        type='text' 
        placeholder='type text'>
+```
+
+## Guard pattern <a id='guard-pattern' href='#guard-pattern'>&#9875;</a>
+
+Bad:
+```javascript
+(value) => {
+  if (value) {
+    return doSthgWithValue(value)
+      .then(modifiedValue => `Returned value: ${modifiedValue}`);
+  }
+};
+```
+Better:
+```javascript
+(value) => {
+  if (value) {
+    return doSthgWithValue(value)
+      .then(modifiedValue => `Returned value: ${modifiedValue}`);
+  }
+  return Promise.resolve(null); // or Promise.reject(Error(...)) depending on circumstances
+};
+```
+Good:
+```javascript
+(value) => {
+  if (!value) {
+    return Promise.resolve(null); // or Promise.reject(Error(...)) depending on circumstances
+  }
+  return doSthgWithValue(value)
+    .then(modifiedValue => `Returned value: ${modifiedValue}`);
+};
+```
+It is the best practice to use guard pattern always, especially, when we require specific response type. In first example there were two types of function interface depending on input: `Promise` (when successful check) and `undefined` (returned as default by function in JS), which could cause Errors like: `.then(...) is not a function` or other caused by returning undefined instead of Promise.
+That's good practise too, when the interfaces wouldn't be much different. Consider following case:
+```javascript
+(value) => {
+  if (value) {
+    const firstString = 'First part of string';
+    const secondString = 'Second part of string';
+
+    return `${firstString}; ${secondString}; Value: ${value}`;
+  }
+};
+```
+in this case, function will return string if value, and undefined of not, but it's not explicitly said. It is much clearer what function does, when we write it as follows:
+```javascript
+(value) => {
+  if (value) { return ''; }
+
+  const firstString = 'First part of string';
+  const secondString = 'Second part of string';
+
+  return `${firstString}; ${secondString}; Value: ${value}`;
+};
+```
+not only function has unified output, but it also doesn't require nesting correct function activity.
+
+The benefits of guard pattern are even better seen in more complicated examples.
+Instead of nested 'if-else's:
+```javascript
+({ firstVal, secondVal, lastVal}) => {
+  if (firstVal) {
+    const firstString = `FirstVal: ${firstVal}`;
+
+    if (secondVal) {
+      const secondString = `SecondVal: ${secondVal}`;
+
+      if (lastVal) {
+        const lastString = `LastVal: ${lastVal}`;
+
+        return `${firstString}, ${secondString}, ${lastString}`;
+      } else {
+        return `${firstString}, ${secondString}`;
+      }
+    } else {
+      return `${firstString}`;
+    }
+  } else {
+    return '';
+  }
+};
+```
+we can write it as:
+```javascript
+({ firstVal, secondVal, lastVal}) => {
+  if (!firstVal) { return ''; }
+
+  const firstString = `FirstVal: ${firstVal}`;
+
+  if (!secondVal) { return `${firstString}`; }
+
+  const secondString = `SecondVal: ${secondVal}`;
+
+  if (!lastVal) { return `${firstString}, ${secondString}`; }
+
+  const lastString = `LastVal: ${lastVal}`;
+
+  return `${firstString}, ${secondString}, ${lastString}`;
+};
 ```
