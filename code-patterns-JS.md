@@ -8,6 +8,7 @@
 * [assignment in arrow function](#assignment-in-arrow-function)
 * [HTML tag with multiple attributes](#multiple-element-attributes)
 * [Guard Pattern](#guard-pattern)
+* [Wrapping promises](#wrapping-promises)
 
 # Basics
 
@@ -214,4 +215,24 @@ we can write it as:
 
   return `${firstString}, ${secondString}, ${lastString}`;
 };
+```
+
+## Wrapping promises <a id='wrapping-promises' href='#wrapping-promises'>&#9875;</a>
+
+Good practise in writing code based at some point on promises is using just one type of promises, one interface, one library, but not always you are able to choose which promises will be used by library, you're using. Especially, when those  libraries use promises with poorer interface. That's when helpful is promises wrapping. Promises wrapping is just a functionality of promises, which helps unify interfaces.
+
+E.g. when you're using bluebird in your code and one of your lobraries is using natie Promises, you can just:
+
+```javascript
+const bluebird = require('bluebird');
+const lib = require('lib');
+
+lib.doSthAsync()
+  .then() // interface of promises used by lib
+  
+bluebird.resolve(lib.doSthAsync())
+  .then() // interface of bluebird
+  .map()
+  .filter() // ...
+
 ```
